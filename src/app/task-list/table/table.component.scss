@@ -1,0 +1,91 @@
+.info {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+.titles {
+  border-bottom: 1px solid gray;
+}
+
+.titles th {
+  padding: 10px;
+  text-align: left;
+}
+
+tr {
+  border-top: 1px solid gray;
+}
+
+td {
+  padding: 10px;
+}
+
+.tasks:hover {
+  background-color: darkgray;
+}
+
+.edit,
+.delete {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit {
+  background-color: orange;
+}
+
+.edit:hover {
+  background-color: rgb(234, 154, 6);
+}
+
+.delete {
+  background-color: crimson;
+  color: white;
+}
+
+.delete:hover {
+  background-color: rgb(203, 18, 55);
+}
+
+.delete:disabled {
+  background-color: rgba(220, 20, 60, 0.599);
+}
+
+.green {
+  color: green;
+  display: block;
+  padding: 10px;
+}
+
+.red {
+  color: red;
+  display: block;
+  padding: 10px;
+}
+
+// edit
+.edit-tasks:hover {
+  background-color: darkgray;
+}
+
+.edit-input_td {
+  display: flex;
+  height: 30px;
+}
+
+.edit-input:focus {
+  border: 1px solid rgb(34, 160, 218);
+  outline: 1px solid rgb(34, 160, 218);
+}
+
+.save {
+  background-color: rgb(4, 157, 4);
+  color: white;
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}

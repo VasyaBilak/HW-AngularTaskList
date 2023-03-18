@@ -1,0 +1,61 @@
+<table class="info">
+  <tbody id="tbody">
+    <tr class="titles">
+      <th>#</th>
+      <th class="task">Task</th>
+      <th class="check">Check</th>
+      <th class="status">DONE/IN PROGRESS</th>
+      <th class="edit-th">Edit</th>
+      <th class="delete-th">DELETE</th>
+    </tr>
+    <ng-container *ngIf="arrTaskList.length > 0">
+      <tr *ngFor="let obj of arrTaskList; index as i" class="tasks">
+        <td>{{ i + 1 }}</td>
+        <td class="task">{{ obj.task }}</td>
+        <td class="check">
+          <input
+            type="checkbox"
+            [checked]="obj.check"
+            (change)="onChangeStatus($event)"
+            [value]="obj.id"
+          />
+        </td>
+        <td
+          class="status"
+          *ngIf="obj.check === true; then thenBlock; else elseBlock"
+        ></td>
+        <td><button class="edit" (click)="editTask(i)">Edit</button></td>
+        <td>
+          <button
+            class="delete"
+            (click)="deleteTask(i)"
+            [disabled]="!obj.check"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <ng-container *ngIf="editStatus">
+        <tr class="edit-tasks">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="edit-input_td">
+            <input type="text" [(ngModel)]="newTask" class="edit-input" />
+          </td>
+          <td>
+            <input
+              type="button"
+              value="save"
+              class="save"
+              (click)="saveEditTask()"
+            />
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </tbody>
+</table>
+
+<ng-template #thenBlock><span class="green">Done</span></ng-template>
+<ng-template #elseBlock><span class="red">In PROGRESS</span></ng-template>
